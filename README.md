@@ -71,3 +71,6 @@ AlchemicAvatar.generate "ksz2k", 200
 iex> Pinyin.from_string("龡龢龣龤龥癩")
 "chui he jue xie yu la"
 ```
+
+## TODO
+- [ ] Add async option
