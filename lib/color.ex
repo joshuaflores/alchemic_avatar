@@ -3,6 +3,9 @@ defmodule AlchemicAvatar.Color do
 
   def from_name(username) do
     colors_palette = AlchemicAvatar.Config.colors_palette
+
+		username = username |> strip_special_chars()
+
     if colors_palette in @palettes do
       apply(AlchemicAvatar.Color, colors_palette, [username])
     else
@@ -24,6 +27,13 @@ defmodule AlchemicAvatar.Color do
  # def randomcolor(username) do
 		##lent
 	#end
+
+	defp strip_special_chars(username) do
+		username
+		|> String.normalize(:nfd)
+		|> String.replace(~r/[^A-z\s]/u, "")
+		|> String.trim()
+	end
 
   defp do_google_username(username) do
     case username do
