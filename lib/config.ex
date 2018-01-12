@@ -40,6 +40,7 @@ defmodule AlchemicAvatar.Config do
   colors_palette
   """
   def colors_palette do
+    #IO.inspect Keyword.get(@config, :colors_palette)
     Keyword.get(@config, :colors_palette, :google)
   end
 
