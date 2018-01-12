@@ -50,7 +50,7 @@ defmodule AlchemicAvatar do
 		letter =
 			username
 			|> AlchemicAvatar.Color.strip_special_chars
-			|> String.at(1)
+			|> String.first()
 
     %{color: color, letter: letter}
   end
