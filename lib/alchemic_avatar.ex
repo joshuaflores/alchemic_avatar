@@ -45,9 +45,13 @@ defmodule AlchemicAvatar do
     filename
   end
 
-  defp identity(<<char, _rest::binary>> = username) do
+  defp identity(username) do
     color = AlchemicAvatar.Color.from_name(username)
-    letter = <<char>>
+		letter =
+			username
+			|> AlchemicAvatar.Color.strip_special_chars
+			|> String.at(1)
+
     %{color: color, letter: letter}
   end
 

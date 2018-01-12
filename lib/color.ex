@@ -28,11 +28,12 @@ defmodule AlchemicAvatar.Color do
 		##lent
 	#end
 
-	defp strip_special_chars(username) do
+	def strip_special_chars(username) do
 		username
 		|> String.normalize(:nfd)
 		|> String.replace(~r/[^A-z\s]/u, "")
 		|> String.trim()
+		|> String.upcase
 	end
 
   defp do_google_username(username) do
